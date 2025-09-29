@@ -88,17 +88,54 @@ public:
 
     void displayBill() const
     {
-        std::cout << "Patient ID: " << patientID << std::endl;
-        std::cout << "Pharmacy Charges: $" << pharmacyCharges << std::endl;
-        std::cout << "Doctor's Fee: $" << doctorFee << std::endl;
-        std::cout << "Room Charges: $" << roomCharges << std::endl;
-        std::cout << "Total Charges: $" << calculateTotalCharges() << std::endl;
+        cout << "Patient ID: " << patientID << std::endl;
+        cout << "Pharmacy Charges: $" << pharmacyCharges << std::endl;
+        cout << "Doctor's Fee: $" << doctorFee << std::endl;
+        cout << "Room Charges: $" << roomCharges << std::endl;
+        cout << "Total Charges: $" << calculateTotalCharges() << std::endl;
     }
 };
 
 int main()
 {
-    // main function
+    // test personType
+cout << "----- personType Test -----" << endl;
+personType p1("Sahara", "Calloway");
+cout << "Person: ";
+p1.print();
+
+p1.setName("Jane", "Doe");
+cout << "\nUpdated person: ";
+p1.print();
+cout << endl;
+
+// test doctorType
+cout << "\n---- doctorType Test ----" << endl;
+doctorType d1("Gregory", "House", "Pathologist");
+cout << "Doctor: ";
+d1.print();
+cout << "\nSpecialty: " << d1.getSpecialty() << endl;
+
+d1.setSpecialty("Neurologist");
+cout << "Updated Specialty: " << d1.getSpecialty() << endl;
+
+// test billType
+cout << "---- \nbillType test ----" << endl;
+billType b1(101, 150.75, 500.00, 1200.25);
+
+cout << "Bill:" << endl;
+b1.displayBill();
+cout << endl;
+
+// update charges
+b1.setPharmacyCharges(200.50);
+b1.setDoctorFee(600.00);
+b1.setRoomCharges(1300.00);
+
+cout << "Updated Bill:" << endl;
+b1.displayBill();
+
+return 0;
 }
 
 void personType::print() const
